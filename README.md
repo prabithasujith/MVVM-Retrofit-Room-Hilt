@@ -2,7 +2,7 @@
  
  This is an example implementing MVVM- Retrofit- Room- Hilt.
 ## Screenshots
- ![](images/ss1.jpg)
+ ![](images/mvvm_room_retrofit.gif)
 ## Libraries Used:
 - [Hilt](https://developer.android.com/training/dependency-injection/hilt-android)
 - [RxJava2](https://github.com/ReactiveX/RxJava)
