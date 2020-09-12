@@ -13,7 +13,7 @@ import com.prabitha.kotlin.mvvmretrofitroom.models.Pokemon
 
 class PokemonListAdapter() : RecyclerView.Adapter<PokemonViewHolder>() {
 
-     var pokemonList = ArrayList<Pokemon>(0)
+     private var pokemonList = ArrayList<Pokemon>(0)
     private lateinit var   mContext: Context
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokemonViewHolder {
         this.mContext=parent.context

@@ -14,13 +14,13 @@ import javax.inject.Inject
 
 class Repository @Inject constructor(val apiService:APIService, val roomDAO: RoomDAO) {
     fun getPokemons() {
-        Log.d("repository" ," fetching from  the network")
+        Log.d("Repository" ,"Fetching from  the network")
         apiService.getPokemons().subscribeOn(Schedulers.io())
             .subscribe{it->  insertPokemon(it.results)}
     }
 
     private fun insertPokemon(list:ArrayList<Pokemon>) {
-        Log.d("repository" ," adding into the db ${list.size}")
+        Log.d("Repository" ,"Adding into the db ${list.size}")
         for(i in 0 until list.size) {
             roomDAO.insertPokemon(list[i])
         }
