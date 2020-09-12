@@ -5,14 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.ListAdapter
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.prabitha.kotlin.mvvmretrofitroom.R
 import com.prabitha.kotlin.mvvmretrofitroom.models.Pokemon
-import kotlinx.android.synthetic.main.list_item.view.*
-import kotlinx.coroutines.withContext
 
 class PokemonListAdapter() : RecyclerView.Adapter<PokemonViewHolder>() {
 
@@ -20,13 +17,19 @@ class PokemonListAdapter() : RecyclerView.Adapter<PokemonViewHolder>() {
     private lateinit var   mContext: Context
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokemonViewHolder {
         this.mContext=parent.context
-        val itemView =   LayoutInflater.from(parent.context). inflate(R.layout.list_item, parent, false)
+        val itemView =   LayoutInflater.from(parent.context). inflate(
+            R.layout.list_item,
+            parent,
+            false
+        )
         return PokemonViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: PokemonViewHolder, position: Int) {
-
-      //  Glide.with(mContext).load(pokemonList[position].url).into(holder.imageView)
+        val url: String =pokemonList[position].url
+        val pokemonIndex = url.split("/").toTypedArray()
+        val urlString="https://pokeres.bastionbot.org/images/pokemon/" + pokemonIndex[pokemonIndex.size - 2] + ".png"
+       Glide.with(mContext).load(urlString).into(holder.imageView)
 
         holder.textView.text=pokemonList[position].name
     }
@@ -44,4 +47,5 @@ class PokemonListAdapter() : RecyclerView.Adapter<PokemonViewHolder>() {
 
 class PokemonViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
 val textView: TextView =itemView.findViewById(R.id.tvPokemonName)
+    val imageView: ImageView =itemView.findViewById(R.id.imageView)
 }
