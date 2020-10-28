@@ -1,6 +1,6 @@
 # MVVM-Retrofit-Room-Hilt
  
- This is an example implementing MVVM- Retrofit- Room- Hilt.
+ This is a native android application (Kotlin) example implementing MVVM- Retrofit- Room- Hilt.
 ## Screenshots
  ![](images/mvvm_room_retrofit.gif)
 ## Libraries Used:
